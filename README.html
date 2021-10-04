@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>How to contribute to a git project</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="data:text/css,body%20%7B%0Acolor%3A%20%23333%3B%0Afont%2Dfamily%3A%20helvetica%2C%20arial%2C%20sans%2Dserif%3B%0Aline%2Dheight%3A%201%2E5%3B%0Amargin%3A%200%20auto%3B%0Amax%2Dwidth%3A%2040em%3B%0Apadding%3A%200%201em%3B%0A%7D%0Ah1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%20%7B%0Amargin%3A%201%2E25em%200%200%2E5em%200%3B%0Aline%2Dheight%3A%201%2E2%3B%0A%7D%0Aa%3Alink%20%7B%0Acolor%3A%20%2300e%3B%0A%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23518%3B%0A%7D%0Aa%3Afocus%2C%20a%3Ahover%20%7B%0Acolor%3A%20%2303f%3B%0A%7D%0Aa%3Aactive%20%7B%0Acolor%3A%20%23e00%3B%0A%7D%0Ah1%20a%3Aempty%3Abefore%2C%20h2%20a%3Aempty%3Abefore%2C%20h3%20a%3Aempty%3Abefore%2C%0Ah4%20a%3Aempty%3Abefore%2C%20h5%20a%3Aempty%3Abefore%2C%20h6%20a%3Aempty%3Abefore%20%7B%0Acontent%3A%20%22%23%22%3B%0A%7D%0Ah1%20a%3Aempty%2C%20h2%20a%3Aempty%2C%20h3%20a%3Aempty%2C%20h4%20a%3Aempty%2C%20h5%20a%3Aempty%2C%20h6%20a%3Aempty%20%7B%0Avisibility%3A%20hidden%3B%0Apadding%2Dleft%3A%200%2E25em%3B%0A%7D%0Ah1%3Ahover%20a%3Aempty%2C%20h2%3Ahover%20a%3Aempty%2C%20h3%3Ahover%20a%3Aempty%2C%0Ah4%3Ahover%20a%3Aempty%2C%20h5%3Ahover%20a%3Aempty%2C%20h6%3Ahover%20a%3Aempty%20%7B%0Avisibility%3A%20visible%3B%0A%7D%0Aimg%20%7B%0Amax%2Dwidth%3A%20100%25%3B%0A%7D%0Afigure%20%7B%0Amargin%3A%201em%200%3B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Afigcaption%20%7B%0Afont%2Dsize%3A%20small%3B%0A%7D%0Apre%2C%20code%2C%20samp%2C%20kbd%20%7B%0Acolor%3A%20%23009%3B%0Afont%2Dfamily%3A%20monospace%2C%20monospace%3B%0A%7D%0Apre%20kbd%20%7B%0Acolor%3A%20%23060%3B%0A%7D%0Apre%2C%20blockquote%20%7B%0Abackground%3A%20%23eee%3B%0Apadding%3A%200%2E5em%3B%0A%7D%0Apre%20%7B%0Aoverflow%3A%20auto%3B%0A%7D%0Ablockquote%20%7B%0Aborder%2Dleft%3A%20medium%20solid%20%23ccc%3B%0Amargin%3A%201em%200%3B%0A%7D%0Ablockquote%20%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Ablockquote%20%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Atable%20%7B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Ath%2C%20td%20%7B%0Aborder%3A%20thin%20solid%20%23999%3B%0Apadding%3A%200%2E3em%200%2E4em%3B%0Atext%2Dalign%3A%20left%3B%0A%7D%0A%40media%20%28prefers%2Dcolor%2Dscheme%3A%20dark%29%20%7B%0Abody%20%7B%0Abackground%3A%20%23111%3B%0Acolor%3A%20%23bbb%3B%0A%7D%0Aa%3Alink%20%7B%0Acolor%3A%20%239bf%3B%0A%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23caf%3B%0A%7D%0Aa%3Afocus%2C%20a%3Ahover%20%7B%0Acolor%3A%20%239cf%3B%0A%7D%0Aa%3Aactive%20%7B%0Acolor%3A%20%23faa%3B%0A%7D%0Apre%2C%20code%2C%20samp%2C%20kbd%20%7B%0Acolor%3A%20%236cf%3B%0A%7D%0Apre%20kbd%20%7B%0Acolor%3A%20%239c6%3B%0A%7D%0Apre%2C%20blockquote%20%7B%0Abackground%3A%20%23000%3B%0A%7D%0Ablockquote%20%7B%0Aborder%2Dcolor%3A%20%23333%3B%0A%7D%0Ath%2C%20td%20%7B%0Aborder%2Dcolor%3A%20%23666%3B%0A%7D%0A%7D%0A" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">How to contribute to a git project</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#working-on-changes">Working on changes</a>
+<ul>
+<li><a href="#what-happens-after-i-complete-my-work-in-the-branch">What happens after I complete my work in the branch?</a></li>
+</ul></li>
+<li><a href="#styling-changes">Styling changes</a>
+<ul>
+<li><a href="#modify-the-readme-file">Modify the README file</a></li>
+<li><a href="#follow-the-guidelines-for-commit-messages">Follow the guidelines for commit messages</a></li>
+</ul></li>
+<li><a href="#steps-to-follow-before-introducing-issues-approving-requests">Steps to follow before introducing issues &amp; approving requests</a>
+<ul>
+<li><a href="#approving-pull-requests">Approving pull requests</a></li>
+<li><a href="#introducing-issues">Introducing issues</a></li>
+</ul></li>
+<li><a href="#gitignore-and-not-pushing-personal-files"><code>.gitignore</code> and not pushing personal files</a></li>
+<li><a href="#enforcing-code-standards">Enforcing code standards</a></li>
+</ul>
+</nav>
+<p>This is a simple rule list for contributing to a project that is using git. This file is specifically designed to be used by the <a href="https://meturacing.org/">METU Racing Perception Driverless</a> team. This page should optimally be read in its <a href="https://htmlpreview.github.io/?https://github.com/utkuboduroglu/git-contrib-guide/blob/master/README.html">HTML version</a>.</p>
+<p>At its very core, these are just rules to streamline the process of introducing changes to our codebase. The process is designed this way to improve readability and clarity, so that we can refer back to these changes later on and easily understand our progress. There are some ground rules on what should be followed.</p>
+<p>Although it is convention for git to label new default branches <code>master</code>, we will resort to calling these branches <code>main</code> for this page.</p>
+<h1 id="working-on-changes">Working on changes</h1>
+<p>Whenever we need to introduce new changes, we will need to do it in a branch. The most important rule to be followed in this regard is that we <strong>DO NOT</strong> work directly on the <code>main</code> branch. This branch is only for storing code that is completely functional and only requires minor tweaks. When wanting to work on changes, the process is as follows:</p>
+<ol type="1">
+<li>Checkout to the <code>main</code> branch.</li>
+<li>Create a new branch, aptly named after the task you want to complete:
+<ul>
+<li>For example, if you’re going to work on implementing YOLOv4 on darknet, name your branch <code>models/darknet-YOLOv4</code>.</li>
+</ul></li>
+<li>Checkout your new branch and introduce your changes there.</li>
+</ol>
+<p>This way, your branch will contain the newest changes made to <code>main</code>, while also not introducing changes there.</p>
+<h2 id="what-happens-after-i-complete-my-work-in-the-branch">What happens after I complete my work in the branch?</h2>
+<p>If what you were working on is ready to be introduced to the <code>main</code> branch, navigate to your project’s Github page and create a new pull request to pull the changes from your branch to <code>main</code>. Discuss how you’re going to verify pull requests with your team and do so. For our workflow, we select other team members to review and approve pull requests.</p>
+<h1 id="styling-changes">Styling changes</h1>
+<p>After your changes are made, you need to convert them into commits, but not before appropriately styling them for readability. Here are a few rules for “styling” commits to ensure they are readable and uniform.</p>
+<h2 id="modify-the-readme-file">Modify the README file</h2>
+<p>Your changes will introduce new interfaces and/or features to the project. Please reflect these changes in the <code>README.md</code> file. Not all commits will introduce changes that need to be reflected in the README, but most changes will have caveats/notes that the user has to know about. Create a new section in the README file for this and include the changes in your commit.</p>
+<h2 id="follow-the-guidelines-for-commit-messages">Follow the guidelines for commit messages</h2>
+<p>After you stage your changes and are ready to commit, you will need to specify a commit message to briefly describe what your commit does. Generally, using Github, these messages are along the lines of <code>&#39;Update README.md&#39;</code> or <code>&#39;Add files via upload&#39;</code>. These kinds of commit messages give no information about what the commit does and are generally considered to be bad commit messages. Ideally, your commit messages should completely describe what the commit is and any additional notes that one needs to be careful about. For our purposes, we will follow the <a href="https://www.conventionalcommits.org/en/v1.0.0/#summary">Conventional Commits</a> guidelines to ensure that we completely describe what is going on.</p>
+<p>Taken from the conventional commits website, here is how a commit message should be structured:</p>
+<pre><code>&lt;type&gt;[optional scope]: &lt;description&gt;
+
+[optional body]
+
+[optional footer(s)]</code></pre>
+<p>The commit contains the following structural elements, to communicate intent to the consumers of your library:</p>
+<ol type="1">
+<li><strong>fix</strong>: a commit of the <em>type</em> <code>fix</code> patches a bug in your codebase (this correlates with <code>PATCH</code> in Semantic Versioning).</li>
+<li><strong>feat</strong>: a commit of the <em>type</em> <code>feat</code> introduces a new feature to the codebase (this correlates with <code>MINOR</code> in Semantic Versioning).</li>
+<li><strong>BREAKING CHANGE</strong>: a commit that has a footer <code>BREAKING CHANGE:</code>, or appends a <code>!</code> after the type/scope, introduces a breaking API change (correlating with <code>MAJOR</code> in Semantic Versioning). A BREAKING CHANGE can be part of commits of any <em>type</em>.</li>
+<li><em>types</em> other than <code>fix:</code> and <code>feat:</code> are allowed, for example <a href="https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional">@commitlint/config-conventional</a> (based on the the Angular convention) recommends <code>build:</code>, <code>chore:</code>, <code>ci:</code>, <code>docs:</code>, <code>style:</code>, <code>refactor:</code>, <code>perf:</code>, <code>test:</code>, and others.</li>
+<li><em>footers</em> other than <code>BREAKING CHANGE: &lt;description&gt;</code> may be provided and follow a convention similar to <a href="https://git-scm.com/docs/git-interpret-trailers">git trailer format</a>.</li>
+</ol>
+<h1 id="steps-to-follow-before-introducing-issues-approving-requests">Steps to follow before introducing issues &amp; approving requests</h1>
+<p>After everything else has been followed, we will have a pull request that is ready to be approved to be pulled into the <code>main</code> branch. Depending on how your team is handling this process, you may need to follow more steps to approve requests. These are the steps our team follows.</p>
+<h2 id="approving-pull-requests">Approving pull requests</h2>
+<p>For pull requests:</p>
+<ol type="1">
+<li>If there are no issues with the request, this must be stated in a team meeting. Only after everyone acknowledges that there are no issues can the pull request be approved and merged.</li>
+<li>If there are issues with the request, the issues must be described underneath the pull request. After doing so, the pull request must be read by everyone in a team meeting and the next steps must be discussed. Either close the pull request until the issues are fixed, or if appropriate, approve the pull request but create an issue in the Issues tab of Github.</li>
+</ol>
+<p>After the appropriate steps have been taken, someone else needs to review the pull request/issue. Select a person from the team to review these changes and assign them as the Assignee(s).</p>
+<h2 id="introducing-issues">Introducing issues</h2>
+<p>Issues are either introduced by commits or follow from external reasons (no dataset, badly tuned parameters etc.) The process for creating issues in the Issues tab is very simple. Simply describe the issue in a team meeting, and after everyone has been informed of the issue, create the issue in Github and link it. At this stage, the issue may need an assignee, so select those as well.</p>
+<p>If any pull requests have been made that would fix the issue, link it to the issue using the ‘Linked pull requests’ prompt.</p>
+<h1 id="gitignore-and-not-pushing-personal-files"><code>.gitignore</code> and not pushing personal files</h1>
+<p>During the development process, it is very natural that one would use tools (like IDEs) to help the development process. The issue is that these programs often introduce config files that reside in the project directory and are uploaded to Github. These files often contain personal details or are very large and clutter up the project repository. Therefore, we create <code>.gitignore</code> files in our repositories to prevent git from finding and including these config files in our project. Here are some of the things that must <strong>NOT</strong> be pushed upstream:</p>
+<ol type="1">
+<li>Any IDE config folders (<code>.idea</code>, <code>.vscode</code> etc.)</li>
+<li>Any virtual environment folders (these take up space!)</li>
+<li>Any dataset folders (images, rosbags etc.)</li>
+<li>Any cache folders (<code>__pycache__</code> etc.)</li>
+<li>Any error logs, weights files, model cfg files (<code>yolov4-*.cfg</code> etc.)</li>
+</ol>
+<p>If datasets or config files are required for a project, they must be included in the team’s cloud storage instead (GDrive, Dropbox etc.). <code>virtualenv</code>’s should always be created locally, <strong>NEVER</strong> push these upstream.</p>
+<h1 id="enforcing-code-standards">Enforcing code standards</h1>
+<p>It is a good idea to enforce code standards to ensure that the code is always readable. Although we do not have rigid code standards, following conventions like Google’s style guide for <a href="https://google.github.io/styleguide/pyguide.html">Python</a> and <a href="https://google.github.io/styleguide/cppguide.html">C++</a> is a good idea.</p>
+<p><strong>NOTE</strong>: These style guides will often enforce rules that are there because of Google’s contributor size. It is often best that the code guides to be used be discussed by the team itself, since not everyone is Google.</p>
+</body>
+</html>
